@@ -1,117 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.inner {
-    height: 75%;
-    width: 70%;
+.body {
+    font-family: 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #000;
+    color: #999;
+}
+
+.wrap {
+    width: 100%;
+    height: 98vh;
+    position: relative;
+}
+
+.wrap::after {
+    content: '';
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: inset 120px 100px 250px #000000, inset -120px -100px -250px #000000;
+}
+
+.logotop {
+    position: relative;
+    height: 90px;
+    z-index: 2;
+}
+
+.logotop img {
+    width: 170px;
+    position: absolute;
+    margin-top: 3rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 10px 10px 68px -6px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    margin: auto;
     display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    z-index: 1;
-}
-
-.photo {
-    width: 50%;
-    height: 100%;
-    padding: 0 50px;
+    flex-direction: column;
     justify-content: center;
-    background-image: linear-gradient(to right, #1d1279, #451a8e, #6822a1, #8b2bb4, #af33c6);
+    align-items: center;
+    text-align: center;
+    margin-top: 9rem;
+}
+
+.content h1 {
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin: 1rem 0 2rem;
     color: #fff;
-    border-radius: 10px 0 0 10px;
 }
 
-.photo h1 {
-    margin-top: 40%;
-    font-size: 43px;
-}
-
-.user-form {
-    background: #000;
-    padding: 50px;
-    width: 50%;
-    height: 100%;
-    border-radius: 0px 10px 10px 0px;
-    text-align: center;
-}
-
-.user-form img {
-    z-index: -100;
-    width: 190px;
-}
-
-.user-form input {
-    display: block;
-    width: 100%;
-    padding: 0 16px;
-    height: 44px;
-    text-align: center;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    /* margin-bottom: 2em;
-    border-radius: 5px; */
-}
-
-.txtb {
-    margin: 20px 0;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 6px;
+.content p {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin: 0 0 2rem;
 }
 
 .btn {
-    background: none;
-    color: #ccc;
-    width: 200px;
+    font-size: 20px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+
+.btnt {
+    background: #fff;
+    width: 350px;
     height: 50px;
-    border: 1px solid #2196f3;
-    font-size: 18px;
-    border-radius: 4px;
-    transition: .6s;
-    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    border-radius: 25px 0 0 25px;
 }
 
-.btn:hover {
-    background: #2196f3;
+.btns {
+    position: relative;
+    border-radius: 0 25px 25px 0;
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
     cursor: pointer;
-    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3;
-    transition-delay: 0.5s;
+    background: #ffc107;
+    color: #fff;
+    left: -5px;
 }
 
-@media(max-width: 665px) {
-    .inner {
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 10;
-        left: 10;
+.btns:hover {
+    background: #ff5722;
+}
+
+.wave {
+    position: absolute;
+    width: 100%;
+    height: 143px;
+    bottom: 0;
+    left: 0;
+    background: url(wave.png);
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0;
     }
-    .photo {
-        width: 100%;
-        height: 50%;
-        border-radius: 0 0 0 0;
+    100% {
+        background-position: 1360px;
     }
-    .photo h1 {
-        margin-top: 40px;
-        font-size: 25px;
+}
+
+@media (max-width: 320px) {
+    .logotop img {
+        width: 150px;
     }
-    .photo p {
-        width: auto;
-        height: auto;
+    .btnt {
+        width: 200px;
     }
-    .user-form {
-        width: 100%;
-        border-radius: 0px 0px 0 0;
+    .btns {
+        width: 65px;
+    }
+    .content {
+        margin: 70px 0 0 0;
+    }
+    .content p {
+        margin-top: 0;
+        font-size: small;
+    }
+    .content h1 {
+        margin-top: 0;
+        font-size: 35px;
+    }
+    .wrap {
+        height: 96vh;
+    }
+}
+
+@media (min-width:321px) and (max-width: 360px) {
+    .btnt {
+        width: 200px;
+    }
+    .btns {
+        width: 65px;
+    }
+    .content p {
+        font-size: small;
+    }
+    .content h1 {
+        margin-top: auto;
+        font-size: 40px;
+    }
+    .wrap {
+        height: 96vh;
+    }
+}
+
+@media (min-width:361px) and (max-width: 375px) {
+    .btnt {
+        width: 200px;
+    }
+    .btns {
+        width: 65px;
+    }
+    .content p {
+        font-size: large;
+    }
+    .content {
+        margin: 85px 0 0 0;
+    }
+    .content h1 {
+        margin-top: auto;
+        font-size: 43px;
+    }
+    .wrap {
+        height: 96vh;
+    }
+}
+
+@media (min-width:376px) and (max-width: 411px) {
+    .btnt {
+        width: 200px;
+    }
+    .btns {
+        width: 65px;
+    }
+    .content p {
+        font-size: large;
+    }
+    .content h1 {
+        margin-top: auto;
+        font-size: 43px;
+    }
+    .wrap {
+        height: 97vh;
+    }
+}
+
+@media (min-width:412px) and (max-width: 414px) {
+    .btnt {
+        width: 200px;
+    }
+    .btns {
+        width: 65px;
+    }
+    .content p {
+        font-size: large;
+    }
+    .content h1 {
+        margin-top: auto;
+        font-size: 43px;
+    }
+    .wrap {
+        height: 96vh;
+    }
+}
+
+@media (min-width:415px) and (max-width: 786px) {
+    .btn {
+        font-size: 55px;
+    }
+    .btnt {
+        width: 350px;
+        height: 60px;
+    }
+    .btns {
+        width: 70px;
+        height: 60px;
+        left: -13px;
+    }
+    .content p {
+        font-size: xx-large;
+    }
+    .content h1 {
+        margin-top: auto;
+        font-size: 70px;
+    }
+    .wrap {
+        height: 98vh;
+    }
+}
+
+@media (min-width:787px) and (max-width: 1024px) {
+    .logotop img {
+        margin-top: 100px;
+        width: 250px;
     }
     .btn {
-        width: 100px;
+        font-size: 55px;
+    }
+    .btnt {
+        height: 60px;
+    }
+    .btns {
+        width: 70px;
+        height: 60px;
+        left: -13px;
+    }
+    .content p {
+        font-size: 50px;
+    }
+    .content h1 {
+        margin-top: 100px;
+        font-size: 100px;
+    }
+    .wrap {
+        height: 98vh;
     }
 }
